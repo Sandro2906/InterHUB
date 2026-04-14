@@ -1,0 +1,16 @@
+services:
+  mysql_baza:
+    image: mysql:8.0
+    container_name: BazaOglasa
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: moja_baza
+    ports:
+      - "3308:3306"
+    volumes:
+      - ./sql:/docker-entrypoint-initdb.d
+      - mysql_data:/var/lib/mysql
+
+volumes:
+  mysql_data:
