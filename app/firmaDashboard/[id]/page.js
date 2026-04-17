@@ -31,7 +31,7 @@ export default async function OglasDetaljiPage({ params }) {
       users.ime,
       users.email,
       users.phone,
-      users.cv_url,
+      users.linkedin_url,
       prijave.datum_prijave
     FROM prijave
     JOIN users ON prijave.user_id = users.id
@@ -200,13 +200,14 @@ export default async function OglasDetaljiPage({ params }) {
                             Profil
                           </Link>
 
-                          {kandidat.cv_url && (
+                          {kandidat.linkedin_url && (
                             <a
-                              href={kandidat.cv_url}
-                              download
+                              href={kandidat.linkedin_url}
+                              target="_blank"
+                              rel="noopener noreferrer"
                               className="rounded-xl bg-cyan-500 px-4 py-2 text-white transition hover:bg-cyan-400"
                             >
-                              CV
+                              LinkedIn
                             </a>
                           )}
                         </div>
